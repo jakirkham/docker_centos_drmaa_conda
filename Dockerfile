@@ -1,4 +1,4 @@
-FROM ubuntu:12.04
+FROM centos:6.6
 MAINTAINER John Kirkham <jakirkham@gmail.com>
 
 
