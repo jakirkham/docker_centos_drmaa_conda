@@ -41,7 +41,7 @@ qconf -sql | xargs -r qconf -dq
 qconf -spl | grep -v "make" | xargs -r qconf -dp
 qconf -Ap $SGE_CONFIG_DIR/batch.conf
 qconf -Aq $SGE_CONFIG_DIR/queue.conf
-service sge_qmaster restart
+service sgemaster restart
 service sge_execd restart
 echo "Printing queue info to verify that things are working correctly."
 qstat -f -q all.q -explain a
