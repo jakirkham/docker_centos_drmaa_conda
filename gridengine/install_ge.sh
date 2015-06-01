@@ -9,6 +9,7 @@ cp /etc/resolv.conf /etc/resolv.conf.orig
 echo "domain ${HOSTNAME}" >> /etc/resolv.conf
 # Update everything.
 yum -y update -q
+yum -y install epel-release
 yum -y install gridengine gridengine-qmaster
 # Do this in a separate step to give master time to start
 yum -y install libdrmaa.so.1.0 gridengine-execd
