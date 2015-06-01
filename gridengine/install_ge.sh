@@ -9,9 +9,6 @@ cp /etc/resolv.conf /etc/resolv.conf.orig
 echo "domain ${HOSTNAME}" >> /etc/resolv.conf
 # Update everything.
 yum -y update -q
-echo "gridengine-master shared/gridenginemaster string ${HOSTNAME}" | debconf-set-selections
-echo "gridengine-master shared/gridenginecell string default" | debconf-set-selections
-echo "gridengine-master shared/gridengineconfig boolean true" | debconf-set-selections
 yum -y install gridengine gridengine-qmaster
 # Do this in a separate step to give master time to start
 yum -y install libdrmaa.so.1.0 gridengine-execd
