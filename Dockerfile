@@ -4,7 +4,9 @@ MAINTAINER John Kirkham <jakirkham@gmail.com>
 
 RUN echo "root:docker" | chpasswd
 
-RUN yum update -y && yum install -y sudo && yum clean all
+RUN yum update -y && \
+    yum install -y sudo && \
+    yum clean all
 
 RUN groupadd -f wheel && \
     useradd -m -s /bin/bash -g wheel user && \
