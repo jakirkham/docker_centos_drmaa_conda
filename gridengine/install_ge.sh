@@ -18,6 +18,8 @@ echo $HOSTNAME > ${SGE_ROOT}/default/common/act_qmaster
 service gridengine-master restart
 service gridengine-exec restart
 export CORES=$(grep -c '^processor' /proc/cpuinfo)
+cp $SGE_CONFIG_DIR/util/arch $SGE_CONFIG_DIR/util/arch.orig
+sed -i 's/osrelease="`$UNAME -r`"/osrelease="2.6.1"/g' $SGE_CONFIG_DIR/util/arch
 (cd $SGE_CONFIG_DIR && ./inst_sge -x -m -auto ./docker_configuration.conf)
 source $SGE_CONFIG_DIR/default/common/settings.sh
 cp $SGE_CONFIG_DIR/user.conf.tmpl $SGE_CONFIG_DIR/user.conf
