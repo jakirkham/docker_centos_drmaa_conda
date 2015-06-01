@@ -39,8 +39,8 @@ qconf -sql | xargs -r qconf -dq
 qconf -spl | grep -v "make" | xargs -r qconf -dp
 qconf -Ap $SGE_CONFIG_DIR/batch.conf
 qconf -Aq $SGE_CONFIG_DIR/queue.conf
-service gridengine-qmaster restart
-service gridengine-execd restart
+service sge_qmaster restart
+service sge_execd restart
 echo "Printing queue info to verify that things are working correctly."
 qstat -f -q all.q -explain a
 echo "You should see sge_execd and sge_qmaster running below:"
