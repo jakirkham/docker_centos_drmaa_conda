@@ -17,7 +17,7 @@ sudo sh -c 'echo "domain ${HOSTNAME}" >> /etc/resolv.conf'
 sudo sh -c "echo \"${HOSTNAME}\" > ${SGE_ROOT}/default/common/act_qmaster"
 
 # Restart Grid Engine
-sudo service sge_qmaster restart
+sudo service sgemaster restart
 sudo service sge_execd restart
 
 # Replace all of the config files with the template files
