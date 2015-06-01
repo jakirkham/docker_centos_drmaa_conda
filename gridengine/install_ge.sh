@@ -12,7 +12,7 @@ yum -y update -q
 echo "gridengine-master shared/gridenginemaster string ${HOSTNAME}" | debconf-set-selections
 echo "gridengine-master shared/gridenginecell string default" | debconf-set-selections
 echo "gridengine-master shared/gridengineconfig boolean true" | debconf-set-selections
-yum -y install gridengine-common gridengine-master
+yum -y install gridengine gridengine-qmaster
 # Do this in a separate step to give master time to start
 yum -y install libdrmaa1.0 gridengine-client gridengine-exec
 cp ${SGE_ROOT}/default/common/act_qmaster ${SGE_ROOT}/default/common/act_qmaster.orig
