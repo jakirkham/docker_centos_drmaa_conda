@@ -13,8 +13,8 @@ yum -y install epel-release
 yum -y install gridengine gridengine-devel gridengine-qmaster gridengine-execd libdrmaa.so.1.0
 cp ${SGE_ROOT}/default/common/act_qmaster ${SGE_ROOT}/default/common/act_qmaster.orig
 echo $HOSTNAME > ${SGE_ROOT}/default/common/act_qmaster
-service gridengine-master restart
-service gridengine-exec restart
+service sgemaster restart
+service sge_execd restart
 export CORES=$(grep -c '^processor' /proc/cpuinfo)
 cp $SGE_CONFIG_DIR/util/arch $SGE_CONFIG_DIR/util/arch.orig
 sed -i 's/osrelease="`$UNAME -r`"/osrelease="2.6.1"/g' $SGE_CONFIG_DIR/util/arch
@@ -83,8 +83,8 @@ set +e
 popd &>/dev/null
 rm -rf /tmp/test_gridengine &>/dev/null
 # Put everything back the way it was.
-service gridengine-exec stop
-service gridengine-master stop
+service sge_execd stop
+service sgemaster stop
 cp /etc/resolv.conf.orig /etc/resolv.conf
 cp ${SGE_ROOT}/default/common/act_qmaster.orig ${SGE_ROOT}/default/common/act_qmaster
 # Clean yum so we don't have a bunch of junk left over from our build.
