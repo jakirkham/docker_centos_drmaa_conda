@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Install bzip2.
-apt-get install -y bzip2 tar
+yum install -y bzip2 tar
 
 # Install dependencies of conda's Qt4.
-apt-get install -y libSM6 libXext6 libXrender1
+yum install -y libSM libXext libXrender
 
-# Clean out apt-get.
-apt-get clean
+# Clean out yum.
+yum clean all
 
 # Download and configure conda.
 cd /usr/share/miniconda
