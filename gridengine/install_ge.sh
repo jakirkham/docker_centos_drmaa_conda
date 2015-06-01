@@ -2,7 +2,7 @@
 
 export USER=$(whoami)
 export SGE_CONFIG_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-export SGE_ROOT=/var/lib/gridengine
+export SGE_ROOT=$SGE_CONFIG_DIR
 echo $SGE_CONFIG_DIR
 sed -i -r "s/^(127.0.0.1\s)(localhost\.localdomain\slocalhost)/\1localhost localhost.localdomain ${HOSTNAME} /" /etc/hosts
 cp /etc/resolv.conf /etc/resolv.conf.orig
