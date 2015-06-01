@@ -11,14 +11,14 @@ echo "domain ${HOSTNAME}" >> /etc/resolv.conf
 yum -y update -q
 yum -y install epel-release
 yum -y install gridengine gridengine-devel gridengine-qmaster gridengine-execd libdrmaa.so.1.0
-cp ${SGE_ROOT}/default/common/act_qmaster ${SGE_ROOT}/default/common/act_qmaster.orig
-echo $HOSTNAME > ${SGE_ROOT}/default/common/act_qmaster
-service sgemaster restart
-service sge_execd restart
 export CORES=$(grep -c '^processor' /proc/cpuinfo)
 cp $SGE_CONFIG_DIR/util/arch $SGE_CONFIG_DIR/util/arch.orig
 sed -i 's/osrelease="`$UNAME -r`"/osrelease="2.6.1"/g' $SGE_CONFIG_DIR/util/arch
 (cd $SGE_CONFIG_DIR && ./inst_sge -x -m -auto ./docker_configuration.conf)
+cp ${SGE_ROOT}/default/common/act_qmaster ${SGE_ROOT}/default/common/act_qmaster.orig
+echo $HOSTNAME > ${SGE_ROOT}/default/common/act_qmaster
+service sgemaster restart
+service sge_execd restart
 source $SGE_CONFIG_DIR/default/common/settings.sh
 cp $SGE_CONFIG_DIR/user.conf.tmpl $SGE_CONFIG_DIR/user.conf
 sed -i -r "s/template/${USER}/" $SGE_CONFIG_DIR/user.conf
