@@ -19,6 +19,7 @@ service gridengine-master restart
 service gridengine-exec restart
 export CORES=$(grep -c '^processor' /proc/cpuinfo)
 $SGE_CONFIG_DIR/inst_sge -x -m -auto $SGE_CONFIG_DIR/docker_configuration.conf
+source $SGE_CONFIG_DIR/default/common/settings.sh
 cp $SGE_CONFIG_DIR/user.conf.tmpl $SGE_CONFIG_DIR/user.conf
 sed -i -r "s/template/${USER}/" $SGE_CONFIG_DIR/user.conf
 qconf -suserl | xargs -r -I {} qconf -du {} arusers
