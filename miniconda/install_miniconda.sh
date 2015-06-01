@@ -11,7 +11,7 @@ yum clean all
 
 # Download and configure conda.
 cd /usr/share/miniconda
-wget http://repo.continuum.io/miniconda/Miniconda-3.9.1-Linux-x86_64.sh -O miniconda.sh
+curl http://repo.continuum.io/miniconda/Miniconda-3.9.1-Linux-x86_64.sh > miniconda.sh
 bash miniconda.sh -b -p /opt/conda
 export PATH="/opt/conda/bin:${PATH}"
 conda config --set always_yes yes
