@@ -4,7 +4,7 @@ MAINTAINER John Kirkham <jakirkham@gmail.com>
 
 RUN echo "root:docker" | chpasswd
 
-RUN echo "multilib_policy=best" >> /etc/yum.conf && \
+RUN echo "exclude=*.i386 *.i686" >> /etc/yum.conf && \
     yum update -y && \
     yum install -y sudo && \
     yum clean all
