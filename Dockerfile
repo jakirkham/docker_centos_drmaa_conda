@@ -9,10 +9,6 @@ RUN echo "exclude=*.i386 *.i686" >> /etc/yum.conf && \
     yum install -y sudo && \
     yum clean all
 
-RUN groupadd -f wheel && \
-    useradd -m -s /bin/bash -g wheel user && \
-    echo '%wheel ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
 ADD gridengine /usr/share/gridengine
 RUN /usr/share/gridengine/install_ge.sh
 
