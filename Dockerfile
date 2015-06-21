@@ -4,7 +4,6 @@ MAINTAINER John Kirkham <jakirkham@gmail.com>
 
 RUN echo "exclude=*.i386 *.i686" >> /etc/yum.conf && \
     yum update -y && \
-    yum install -y sudo && \
     yum clean all
 
 ADD gridengine /usr/share/gridengine
