@@ -3,6 +3,9 @@
 # Install curl to download the miniconda setup script.
 yum install -y curl
 
+# Install VCS.
+yum install -y git hg svn
+
 # Install bzip2.
 yum install -y bzip2 tar
 
