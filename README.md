@@ -9,7 +9,7 @@ In order to provide a simple portable test environment for Grid Engine, this rep
 
 ## Automatic
 
-This repo is part of an automated build, which is hosted on Docker Hub ( <https://registry.hub.docker.com/u/jakirkham/centos_drmaa_conda> ). Changes added to this trigger an automatic rebuild and deploy the resulting image to Docker Hub. To download an existing image, one simply needs to run `docker pull jakirkham/centos_drmaa_conda`.
+This repo is part of an automated build, which is hosted on Docker Hub ( <https://hub.docker.com/r/jakirkham/centos_drmaa_conda> ). Changes added to this trigger an automatic rebuild and deploy the resulting image to Docker Hub. To download an existing image, one simply needs to run `docker pull jakirkham/centos_drmaa_conda`.
 
 ## Manual
 
