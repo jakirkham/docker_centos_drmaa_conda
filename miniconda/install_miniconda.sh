@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Update yum.
+yum update -y -q
+
 # Install curl to download the miniconda setup script.
 yum install -y curl
 
