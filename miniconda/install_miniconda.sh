@@ -34,7 +34,6 @@ do
     export PATH="${CONDA_PATH}/bin:${OLD_PATH}"
     source activate root
     conda config --set show_channel_urls True
-    echo "conda-build 1.20.0" >> "${CONDA_PATH}/conda-meta/pinned"
 
     # Update and install basic conda dependencies.
     conda update -y --all
