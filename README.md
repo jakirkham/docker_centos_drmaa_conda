@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/jakirkham/docker_centos_drmaa_conda/tree/master.svg?style=shield)](https://circleci.com/gh/jakirkham/docker_centos_drmaa_conda/tree/master)
 [![](https://badge.imagelayers.io/jakirkham/centos_drmaa_conda:latest.svg)](https://imagelayers.io/?images=jakirkham/centos_drmaa_conda:latest 'Get your own badge on imagelayers.io')
 [![](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt 'Apache License Version 2.0')
 
