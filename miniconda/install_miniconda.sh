@@ -6,9 +6,6 @@ yum update -y -q
 # Install curl to download the miniconda setup script.
 yum install -y curl
 
-# Install VCS.
-yum install -y git hg svn
-
 # Install bzip2.
 yum install -y bzip2 tar
 
@@ -52,6 +49,11 @@ do
 
     # Install python bindings to DRMAA.
     conda install -y drmaa
+
+    # Install common VCS packages.
+    conda install -y git
+    conda install -y mercurial
+    conda install -y svn
 
     # Clean out all unneeded intermediates.
     conda clean -yitps
