@@ -5,8 +5,8 @@ MAINTAINER John Kirkham <jakirkham@gmail.com>
 ADD http://www.timeapi.org/utc/now /opt/docker/etc/timestamp
 
 RUN echo "exclude=*.i386 *.i686" >> /etc/yum.conf && \
-    yum update -y && \
-    yum clean all
+    yum update -y -q && \
+    yum clean all -y -q
 
 ADD gridengine /usr/share/gridengine
 RUN /usr/share/gridengine/install_ge.sh
