@@ -4,16 +4,16 @@
 yum update -y -q
 
 # Install curl to download the miniconda setup script.
-yum install -y curl
+yum install -y -q curl
 
 # Install bzip2.
-yum install -y bzip2 tar
+yum install -y -q bzip2 tar
 
 # Install dependencies of conda's Qt4.
-yum install -y libSM libXext libXrender
+yum install -y -q libSM libXext libXrender
 
 # Clean out yum.
-yum clean all
+yum clean all -y -q
 
 # Install everything for both environments.
 export OLD_PATH="${PATH}"
@@ -41,22 +41,22 @@ do
     echo "conda-build 1.*" >> "${INSTALL_CONDA_PATH}/conda-meta/pinned"
 
     # Update and install basic conda dependencies.
-    conda update -y --all
-    conda install -y pycrypto
-    conda install -y conda-build
-    conda install -y anaconda-client
-    conda install -y jinja2
+    conda update -qy --all
+    conda install -qy pycrypto
+    conda install -qy conda-build
+    conda install -qy anaconda-client
+    conda install -qy jinja2
 
     # Install python bindings to DRMAA.
-    conda install -y drmaa
+    conda install -qy drmaa
 
     # Install common VCS packages.
-    conda install -y git
-    conda install -y mercurial
-    conda install -y svn
+    conda install -qy git
+    conda install -qy mercurial
+    conda install -qy svn
 
     # Clean out all unneeded intermediates.
-    conda clean -yitps
+    conda clean -tipsy
 
     # Provide links in standard path.
     ln -s "${INSTALL_CONDA_PATH}/bin/python"  "/usr/local/bin/python${PYTHON_VERSION}"

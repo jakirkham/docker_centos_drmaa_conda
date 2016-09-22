@@ -8,9 +8,9 @@ sed -i -r "s/^(127.0.0.1\s)(localhost\.localdomain\slocalhost)/\1localhost local
 cp /etc/resolv.conf /etc/resolv.conf.orig
 echo "domain ${HOSTNAME}" >> /etc/resolv.conf
 # Update everything.
-yum -y update -q
-yum -y install epel-release
-yum -y install gridengine gridengine-devel gridengine-qmaster gridengine-execd libdrmaa.so.1.0
+yum update -y -q
+yum install -y -q epel-release
+yum install -y -q gridengine gridengine-devel gridengine-qmaster gridengine-execd libdrmaa.so.1.0
 export CORES=$(grep -c '^processor' /proc/cpuinfo)
 cp $SGE_CONFIG_DIR/util/arch $SGE_CONFIG_DIR/util/arch.orig
 sed -i 's/osrelease="`$UNAME -r`"/osrelease="2.6.1"/g' $SGE_CONFIG_DIR/util/arch
@@ -88,4 +88,4 @@ service sgemaster stop
 cp /etc/resolv.conf.orig /etc/resolv.conf
 cp ${SGE_ROOT}/default/common/act_qmaster.orig ${SGE_ROOT}/default/common/act_qmaster
 # Clean yum so we don't have a bunch of junk left over from our build.
-yum clean all
+yum clean all -y -q
