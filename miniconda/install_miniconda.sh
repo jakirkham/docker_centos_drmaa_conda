@@ -32,6 +32,9 @@ do
     source activate root
     conda config --set show_channel_urls True
 
+    # Add conda-forge to our channels.
+    conda config --add channels conda-forge
+
     # Pin `conda-build` until `bdist_conda` works.
     # Please see the linked issue.
     #
