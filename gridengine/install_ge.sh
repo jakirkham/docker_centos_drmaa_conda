@@ -6,7 +6,7 @@ export USER=$(whoami)
 export SGE_CONFIG_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export SGE_ROOT=$SGE_CONFIG_DIR
 echo $SGE_CONFIG_DIR
-sed -i -r "s/^(127.0.0.1\s)(localhost\.localdomain\slocalhost)/\1localhost localhost.localdomain ${HOSTNAME} /" /etc/hosts
+sed -i -r "s/^(127.0.0.1\s)(localhost\.localdomain\slocalhost)/\1localhost localhost.localdomain ${HOSTNAME} /" /etc/hosts || true
 cp /etc/resolv.conf /etc/resolv.conf.orig
 echo "domain ${HOSTNAME}" >> /etc/resolv.conf
 # Update everything.
