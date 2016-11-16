@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Update yum.
 yum update -y -q
 
