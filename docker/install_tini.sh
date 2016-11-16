@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 yum update -y -q
 yum install -y -q curl grep sed
 TINI_VERSION=`curl https://github.com/krallin/tini/releases/latest | grep -o "/v.*\"" | sed 's:^..\(.*\).$:\1:'`
