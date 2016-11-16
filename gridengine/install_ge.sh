@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 export USER=$(whoami)
 export SGE_CONFIG_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export SGE_ROOT=$SGE_CONFIG_DIR
@@ -53,7 +55,6 @@ echo "Submit a simple job to make sure the submission system really works."
 
 mkdir /tmp/test_gridengine &>/dev/null
 pushd /tmp/test_gridengine &>/dev/null
-set -e
 
 echo "-------------- test.sh --------------"
 echo -e '#!/bin/bash\necho "stdout"\necho "stderr" 1>&2' | tee test.sh
@@ -79,7 +80,6 @@ grep stderr test.sh.e* &>/dev/null
 
 rm test.sh*
 
-set +e
 popd &>/dev/null
 rm -rf /tmp/test_gridengine &>/dev/null
 # Put everything back the way it was.
