@@ -57,7 +57,11 @@ do
 
     # Install common VCS packages.
     conda install -qy git
-    conda install -qy mercurial
+    if [ "${PYTHON_VERSION}" == "2" ]
+    then
+        # Mercurial is Python 2 only.
+        conda install -qy mercurial
+    fi
     conda install -qy svn
 
     # Clean out all unneeded intermediates.
