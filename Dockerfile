@@ -2,7 +2,7 @@ FROM centos:6.6
 MAINTAINER John Kirkham <jakirkham@gmail.com>
 
 # Add a timestamp for the build. Also, bust the cache.
-ADD http://www.timeapi.org/utc/now /opt/docker/etc/timestamp
+ADD http://tycho.usno.navy.mil/timer.html /opt/docker/etc/timestamp
 
 RUN echo "exclude=*.i386 *.i686" >> /etc/yum.conf && \
     yum update -y -q && \
