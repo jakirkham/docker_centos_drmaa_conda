@@ -37,13 +37,8 @@ do
     # Add conda-forge to our channels.
     conda config --add channels conda-forge
 
-    # Pin `conda-build` until `bdist_conda` works.
-    # Please see the linked issue.
-    #
-    # https://github.com/conda/conda-build/issues/1305
-    #
+    # Provide an empty pinning file should it be needed.
     touch "${INSTALL_CONDA_PATH}/conda-meta/pinned"
-    echo "conda-build 1.*" >> "${INSTALL_CONDA_PATH}/conda-meta/pinned"
 
     # Update and install basic conda dependencies.
     conda update -qy --all
