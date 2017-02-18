@@ -25,7 +25,7 @@ do
 
     # Download and install `conda`.
     cd /usr/share/miniconda
-    curl -L "https://repo.continuum.io/miniconda/Miniconda${PYTHON_VERSION}-latest-Linux-x86_64.sh" > "miniconda${PYTHON_VERSION}.sh"
+    curl -L "https://repo.continuum.io/miniconda/Miniconda${PYTHON_VERSION}-4.2.12-Linux-x86_64.sh" > "miniconda${PYTHON_VERSION}.sh"
     bash "miniconda${PYTHON_VERSION}.sh" -b -p "${INSTALL_CONDA_PATH}"
     rm "miniconda${PYTHON_VERSION}.sh"
 
