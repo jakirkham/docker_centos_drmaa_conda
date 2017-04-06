@@ -40,7 +40,10 @@ do
     # Provide an empty pinning file should it be needed.
     touch "${INSTALL_CONDA_PATH}/conda-meta/pinned"
 
-    # Update and install basic conda dependencies.
+    # Update conda and other basic dependencies.
+    conda update -qy --all
+
+    # Install some other conda relevant packages.
     conda update -qy --all
     conda install -qy pycrypto
     conda install -qy conda-build
