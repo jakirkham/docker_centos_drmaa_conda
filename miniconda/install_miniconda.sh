@@ -43,6 +43,9 @@ do
     # Update conda and other basic dependencies.
     conda update -qy --all
 
+    # Update to latest Python minor version.
+    conda install -qy "python=${PYTHON_VERSION}"
+
     # Install some other conda relevant packages.
     conda update -qy --all
     conda install -qy pycrypto
