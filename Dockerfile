@@ -1,4 +1,4 @@
-FROM centos:6.6
+FROM centos:6
 MAINTAINER John Kirkham <jakirkham@gmail.com>
 
 # Add a timestamp for the build. Also, bust the cache.
