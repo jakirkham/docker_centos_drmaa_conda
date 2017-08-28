@@ -74,6 +74,6 @@ do
     ln -s "${INSTALL_CONDA_PATH}/bin/conda"  "/usr/local/bin/conda${PYTHON_VERSION}"
 done
 
-# Set the conda2 environment as the default.
+# Set the conda3 environment as the default.
 # This should be removed in the future.
-ln -s /opt/conda2 /opt/conda
+ln -s /opt/conda3 /opt/conda
