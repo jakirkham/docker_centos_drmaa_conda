@@ -53,6 +53,9 @@ do
     conda install -qy anaconda-client
     conda install -qy jinja2
 
+    # Install tini for the Docker container init process.
+    conda install -qy tini
+
     # Install python bindings to DRMAA.
     conda install -qy drmaa
 
