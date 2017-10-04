@@ -22,10 +22,11 @@ export OLD_PATH="${PATH}"
 for PYTHON_VERSION in 2 3;
 do
     export INSTALL_CONDA_PATH="/opt/conda${PYTHON_VERSION}"
+    export MINICONDA_VERSION="4.2.12"
 
     # Download and install `conda`.
     cd /usr/share/miniconda
-    curl -L "https://repo.continuum.io/miniconda/Miniconda${PYTHON_VERSION}-4.2.12-Linux-x86_64.sh" > "miniconda${PYTHON_VERSION}.sh"
+    curl -L "https://repo.continuum.io/miniconda/Miniconda${PYTHON_VERSION}-${MINICONDA_VERSION}-Linux-x86_64.sh" > "miniconda${PYTHON_VERSION}.sh"
     bash "miniconda${PYTHON_VERSION}.sh" -b -p "${INSTALL_CONDA_PATH}"
     rm "miniconda${PYTHON_VERSION}.sh"
 
