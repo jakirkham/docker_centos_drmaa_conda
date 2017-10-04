@@ -17,15 +17,23 @@ yum install -y -q libSM libXext libXrender
 # Clean out yum.
 yum clean all -y -q
 
+export MINICONDA_VERSION="4.3.21"
+export MINICONDA2_CHECKSUM="7097150146dd3b83c805223663ebffcc"
+export MINICONDA3_CHECKSUM="c1c15d3baba15bf50293ae963abef853"
+
 # Install everything for both environments.
 export OLD_PATH="${PATH}"
 for PYTHON_VERSION in 2 3;
 do
     export INSTALL_CONDA_PATH="/opt/conda${PYTHON_VERSION}"
+    export MINICONDA_CHECKSUM="\${MINICONDA${PYTHON_VERSION}_CHECKSUM}"
+    eval export MINICONDA_CHECKSUM=``${MINICONDA_CHECKSUM}``
 
     # Download and install `conda`.
     cd /usr/share/miniconda
-    curl -L "https://repo.continuum.io/miniconda/Miniconda${PYTHON_VERSION}-4.2.12-Linux-x86_64.sh" > "miniconda${PYTHON_VERSION}.sh"
+    curl -L "https://repo.continuum.io/miniconda/Miniconda${PYTHON_VERSION}-${MINICONDA_VERSION}-Linux-x86_64.sh" > "miniconda${PYTHON_VERSION}.sh"
+    openssl md5 "miniconda${PYTHON_VERSION}.sh"
+    openssl md5 "miniconda${PYTHON_VERSION}.sh" | grep "${MINICONDA_CHECKSUM}"
     bash "miniconda${PYTHON_VERSION}.sh" -b -p "${INSTALL_CONDA_PATH}"
     rm "miniconda${PYTHON_VERSION}.sh"
 
