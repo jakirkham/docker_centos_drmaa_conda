@@ -56,6 +56,10 @@ do
     # Install tini for the Docker container init process.
     conda install -qy tini
 
+    # Pin tini to exactly the version installed.
+    CONDA_TINI_INFO=( `conda list tini | grep tini` )
+    echo "tini ${CONDA_TINI_INFO[1]}" >> "${INSTALL_CONDA_PATH}/conda-meta/pinned"
+
     # Install python bindings to DRMAA.
     conda install -qy drmaa
 
