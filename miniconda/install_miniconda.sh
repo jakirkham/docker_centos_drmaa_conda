@@ -14,6 +14,9 @@ yum install -y -q bzip2 tar
 # Install dependencies of conda's Qt4.
 yum install -y -q libSM libXext libXrender
 
+# Install basic fonts (needed by things like Graphviz).
+yum install -y -q urw-fonts
+
 # Clean out yum.
 yum clean all -y -q
 
