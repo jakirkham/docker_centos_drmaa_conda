@@ -1,12 +1,5 @@
-FROM centos:6
+FROM jakirkham/centos_conda:latest
 MAINTAINER John Kirkham <jakirkham@gmail.com>
-
-# Add a timestamp for the build. Also, bust the cache.
-ADD http://tycho.usno.navy.mil/timer.html /opt/docker/etc/timestamp
-
-RUN echo "exclude=*.i386 *.i686" >> /etc/yum.conf && \
-    yum update -y -q && \
-    yum clean all -y -q
 
 ADD gridengine /usr/share/gridengine
 RUN /usr/share/gridengine/install_ge.sh
@@ -16,14 +9,14 @@ ENV SGE_CONFIG_DIR=/usr/share/gridengine \
     SGE_CELL=default \
     DRMAA_LIBRARY_PATH=/usr/lib64/libdrmaa.so.1.0
 
-ADD miniconda /usr/share/miniconda
-RUN /usr/share/miniconda/install_miniconda.sh
+RUN for PYTHON_VERSION in 2 3; do \
+        export INSTALL_CONDA_PATH="/opt/conda${PYTHON_VERSION}" && \
+        . ${INSTALL_CONDA_PATH}/bin/activate root && \
+        conda install -qy -n root drmaa && \
+        conda clean -tipsy ; \
+    done
 
-ENV PATH=/opt/conda/bin:$PATH \
-    CONDA_DEFAULT_ENV=root \
-    CONDA_ENV_PATH=/opt/conda
+ADD entrypoint.sh /usr/share/docker/entrypoint_2.sh
 
-ADD docker /usr/share/docker
-
-ENTRYPOINT [ "/opt/conda/bin/tini", "--", "/usr/share/docker/entrypoint.sh" ]
+ENTRYPOINT [ "/opt/conda/bin/tini", "--", "/usr/share/docker/entrypoint.sh", "/usr/share/docker/entrypoint_2.sh" ]
 CMD [ "/bin/bash" ]
