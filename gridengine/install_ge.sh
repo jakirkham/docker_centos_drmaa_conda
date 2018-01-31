@@ -89,3 +89,4 @@ cp /etc/resolv.conf.orig /etc/resolv.conf
 cp ${SGE_ROOT}/default/common/act_qmaster.orig ${SGE_ROOT}/default/common/act_qmaster
 # Clean yum so we don't have a bunch of junk left over from our build.
 yum clean all -y -q
+rm -rf ~/.pki
