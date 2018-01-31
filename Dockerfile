@@ -13,7 +13,8 @@ RUN for PYTHON_VERSION in 2 3; do \
         export INSTALL_CONDA_PATH="/opt/conda${PYTHON_VERSION}" && \
         . ${INSTALL_CONDA_PATH}/bin/activate root && \
         conda install -qy -n root drmaa && \
-        conda clean -tipsy ; \
+        conda clean -tipsy && \
+        rm -rf ~/.conda ; \
     done
 
 ADD entrypoint.sh /usr/share/docker/entrypoint_2.sh
