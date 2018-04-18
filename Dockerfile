@@ -12,7 +12,7 @@ ENV SGE_CONFIG_DIR=/usr/share/gridengine \
 RUN for PYTHON_VERSION in 2 3; do \
         export INSTALL_CONDA_PATH="/opt/conda${PYTHON_VERSION}" && \
         . ${INSTALL_CONDA_PATH}/bin/activate && \
-        conda install -qy -n root drmaa && \
+        conda install -qy drmaa && \
         conda clean -tipsy && \
         . ${INSTALL_CONDA_PATH}/bin/deactivate && \
         rm -rf ~/.conda ; \
