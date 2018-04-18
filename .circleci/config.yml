@@ -1,11 +1,20 @@
-machine:
-  services:
-    - docker
+version: 2
 
-dependencies:
-  override:
-    - docker info
+jobs:
+  build:
+    working_directory: ~/test
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Docker info
+          command: docker info
+      - run:
+          name: Build Docker image
+          command: docker build -t jakirkham/centos_drmaa_conda .
 
-test:
-  override:
-    - docker build -t jakirkham/centos_drmaa_conda .
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
